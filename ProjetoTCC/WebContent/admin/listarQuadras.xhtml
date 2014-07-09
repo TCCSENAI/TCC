@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:composition template="../WEB-INF/templates/padrao.xhtml">
+	<ui:define name="cabecalho">
+	    Quadras<small>Listar</small>
+	</ui:define>
+	<ui:define name="conteudo">
+	<h:form>
+		<h:dataTable value="#{quadMB.quadras}" var="quad"
+			styleClass="table">
+			<h:column>
+				<f:facet name="header">Codigo</f:facet>
+				<h:outputText value="#{quad.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{quad.nome}" />
+			</h:column>
+			
+			<h:column>
+					<f:facet name="header">#</f:facet>
+					<h:commandLink action="#{quadMB.editar(quad.id)}" styleClass="btn">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</h:commandLink>
+					<h:commandLink action="#{quadMB.excluir(quad.id)}" styleClass="btn">
+						<span class="glyphicon glyphicon-trash"></span>
+					</h:commandLink>
+				</h:column>
+				
+			
+				
+		</h:dataTable>
+		</h:form>
+		<h:panelGrid rendered="#{empty QuadMB.quadras}">
+		Sem registros
+		</h:panelGrid>
+	</ui:define>
+	</ui:composition>
+</html>

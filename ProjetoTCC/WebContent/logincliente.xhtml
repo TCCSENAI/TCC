@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/padrao.xhtml">
+	<ui:define name="cabecalho">Cliente <small>Login</small></ui:define>
+	<ui:define name="conteudo">
+		<h:messages></h:messages>
+		<div style="width: 300px;">
+			<h:form role="form">
+				<div class="form-group">
+					<h:outputLabel value="Usuário" />
+					<h:inputText styleClass="form-control"
+						value="#{loginCMB.usuarioForm.nome}" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Senha" />
+					<h:inputSecret styleClass="form-control"
+						value="#{loginCMB.usuarioForm.senha}" />
+				</div>
+				<h:commandButton styleClass="btn btn-success" value="Entrar"
+					action="#{loginCMB.autenticar}" />
+				<button type="reset" class="btn btn-default">Restaurar</button>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

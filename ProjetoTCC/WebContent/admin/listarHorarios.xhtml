@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:composition template="../WEB-INF/templates/padrao.xhtml">
+	<ui:define name="cabecalho">
+	    Horarios<small>Listar</small>
+	</ui:define>
+	<ui:define name="conteudo">
+	<h:form>
+	
+		<h:outputLabel value="Data: "/>
+		<h:inputText value="#{horMB.data}">
+					<f:convertDateTime locale="pt_BR" />
+					</h:inputText>
+		<h:commandButton value="Pesquisar" action="#{horMB.buscarData}" />
+	
+		<h:dataTable value="#{horMB.horarios}" var="hor"
+			styleClass="table">
+		
+			<h:column>
+				<f:facet name="header">Cliente</f:facet>
+				<h:outputText value="#{hor.cliente.nome}" />
+			</h:column>
+				<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				<h:outputText value="#{hor.cliente.telefone}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Quadra</f:facet>
+				<h:outputText value="#{hor.quadra.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Data</f:facet>
+				<h:outputText value="#{hor.data}">
+					<f:convertDateTime locale="pt_BR" />
+					</h:outputText>
+			</h:column>
+			
+				<h:column>
+				<f:facet name="header">Hora</f:facet>
+				<h:outputText value="#{hor.hora}" />
+			</h:column>
+			
+			<h:column>
+					<f:facet name="header">#</f:facet>
+					<h:commandLink action="#{horMB.editar(hor.id)}" styleClass="btn">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</h:commandLink>
+					<h:commandLink action="#{horMB.excluir(hor.id)}" styleClass="btn">
+						<span class="glyphicon glyphicon-trash"></span>
+					</h:commandLink>
+				</h:column>
+				
+		
+				
+		</h:dataTable>
+		</h:form>
+		<h:panelGrid rendered="#{empty horMB.horarios}">
+		Sem registros
+		</h:panelGrid>
+	</ui:define>
+	</ui:composition>
+</html>

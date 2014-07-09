@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/padrao.xhtml">
+<ui:define name="cabecalho">
+	    Clientes<small>Cadastrar</small>
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form role="form">
+
+			<h:panelGrid rendered="#{!empty cliMB.cliente.id}">
+				<div class="form-group">
+					<h:outputLabel value="Código" />
+					<h:inputText styleClass="form-control" readonly="true"
+						value="#{cliMB.cliente.id}" />
+				</div>
+				
+			</h:panelGrid>
+			<h:inputHidden value="#{cliMB.cliente.id}" />
+			
+
+			<div class="form-group">
+				<h:outputLabel value="Nome" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.nome}" />
+			</div>
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="telefone" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.telefone}" />
+			</div>
+			
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="estado" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.estado}" />
+			</div>
+			
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="cidade" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.cidade}" />
+			</div>
+			
+			
+			
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="bairro" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.bairro}" />
+			</div>
+			
+			
+			
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="rua" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.rua}" />
+			</div>
+
+<div class="form-group">
+				<h:outputLabel value="numero" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.numero}" />
+			</div>
+			
+			
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="cep" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.cep}" />
+			</div>
+			
+			
+			
+			<div class="form-group">
+				<h:outputLabel value="cpf" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.cpf}" />
+			</div>
+			
+					<div class="form-group">
+				<h:outputLabel value="rg" />
+				<h:inputText styleClass="form-control"
+					value="#{cliMB.cliente.rg}" />
+			</div>
+
+	<h:outputLabel value="login" />
+				<h:inputText styleClass="form-control" 
+				value="#{cliMB.login.nome}" />
+				
+				
+					<h:outputLabel value="senha" />
+				<h:inputText styleClass="form-control"
+				value="#{cliMB.login.senha}" />
+				
+
+			<h:commandButton value="Salvar" action="#{cliMB.salvar}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

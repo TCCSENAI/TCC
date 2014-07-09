@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition>
+
+<div class="bs-example">
+    <ul class="nav nav-pills">
+    
+         
+        <li><h:link outcome="/index.xhtml" value="Home" /></li>
+             
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Cliente <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+             <h:form>
+             	<ul class="nav navbar-nav navbar-right">
+             <h:panelGroup rendered="#{loginCMB.estaLogado()}">
+						<li><h:commandLink action="#{loginCMB.fechar}" value="Sair" /></li>
+					</h:panelGroup>
+					<h:panelGroup rendered="#{!loginCMB.estaLogado()}">
+						<li><h:link outcome="/logincliente" value="Entrar" /></li>
+					</h:panelGroup>
+					</ul>
+					</h:form>
+            
+            <li><h:link outcome="/clientesform.xhtml" value="Cadastrar Cliente" /></li>
+               <li><h:link outcome="/cliente/cadatrohorario.xhtml" value="Cadastrar Horario" /></li> 
+                <li><h:link outcome="/cliente/listarhorario.xhtml" value="Listar Horario" /></li> 
+            
+              </ul>
+              </li>
+                    
+                
+     <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Administrador <b class="caret"></b></a>
+             <ul class="dropdown-menu">
+             
+             	<h:form>
+				<ul class="nav navbar-nav navbar-right">
+					<h:panelGroup rendered="#{loginMb.estaLogado()}">
+						<li><h:commandLink action="#{loginMb.fechar}" value="Sair" /></li>
+					</h:panelGroup>
+					<h:panelGroup rendered="#{!loginMb.estaLogado()}">
+						<li><h:link outcome="/login" value="Entrar" /></li>
+					</h:panelGroup>
+				</ul>
+			</h:form>
+             
+              <li><h:link outcome="/admin/horariosform.xhtml" value="Cadastrar Horarios" /></li>
+          <li><h:link outcome="/admin/listarHorarios.xhtml" value="Listar Horarios" /></li>
+           <li><h:link outcome="/admin/quadrasform.xhtml" value="Cadastrar Quadra" /></li>
+           <li><h:link outcome="/admin/listarQuadras.xhtml" value="Listar Quadra" /></li>
+             <li><h:link outcome="/admin/listarClientes.xhtml" value="Listar Cliente" /></li>  
+              
+            
+            </ul>  
+            </li>
+            </ul>
+   		<!-- /.navbar-collapse -->
+		
+            <div id="push"></div>
+       
+</div>
+</ui:composition>
+</html>
