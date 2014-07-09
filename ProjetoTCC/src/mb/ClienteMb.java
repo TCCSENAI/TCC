@@ -85,7 +85,9 @@ public class ClienteMb {
 	public String excluir(Long id){
 	Cliente cliente = entityManager.find(Cliente.class, id);
 		entityManager.remove(cliente);
+		entityManager.remove(login);
 		clientes = null;
+		login = null;
 		return "listarClientes";
 		
 		
